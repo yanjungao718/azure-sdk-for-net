@@ -50,7 +50,7 @@ namespace Azure.AI.MetricsAdvisor.Models
             Optional<double> lower = default;
             Optional<double> upper = default;
             BoundaryDirection direction = default;
-            Optional<ValueType> type = default;
+            Optional<BoundaryMeasureType> type = default;
             Optional<string> metricId = default;
             Optional<bool> triggerForMissing = default;
             foreach (var property in element.EnumerateObject())
@@ -87,7 +87,7 @@ namespace Azure.AI.MetricsAdvisor.Models
                         property.ThrowNonNullablePropertyIsNull();
                         continue;
                     }
-                    type = new ValueType(property.Value.GetString());
+                    type = new BoundaryMeasureType(property.Value.GetString());
                     continue;
                 }
                 if (property.NameEquals("metricId"))
