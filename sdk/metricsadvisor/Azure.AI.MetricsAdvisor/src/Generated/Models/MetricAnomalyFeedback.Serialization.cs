@@ -48,7 +48,7 @@ namespace Azure.AI.MetricsAdvisor
                 }
             }
             writer.WritePropertyName("feedbackType");
-            writer.WriteStringValue(Type.ToString());
+            writer.WriteStringValue(Kind.ToString());
             writer.WritePropertyName("metricId");
             writer.WriteStringValue(MetricId);
             writer.WritePropertyName("dimensionFilter");
@@ -63,7 +63,7 @@ namespace Azure.AI.MetricsAdvisor
             AnomalyFeedbackValue value = default;
             Optional<string> anomalyDetectionConfigurationId = default;
             Optional<AnomalyDetectionConfiguration> anomalyDetectionConfigurationSnapshot = default;
-            MetricFeedbackType feedbackType = default;
+            MetricFeedbackKind feedbackType = default;
             Optional<string> feedbackId = default;
             Optional<DateTimeOffset> createdTime = default;
             Optional<string> userPrincipal = default;
@@ -108,7 +108,7 @@ namespace Azure.AI.MetricsAdvisor
                 }
                 if (property.NameEquals("feedbackType"))
                 {
-                    feedbackType = new MetricFeedbackType(property.Value.GetString());
+                    feedbackType = new MetricFeedbackKind(property.Value.GetString());
                     continue;
                 }
                 if (property.NameEquals("feedbackId"))

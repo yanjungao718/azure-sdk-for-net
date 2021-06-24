@@ -50,7 +50,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
         /// <exception cref="ArgumentNullException"><paramref name="accountName"/>, <paramref name="accountKey"/>, <paramref name="fileSystemName"/>, <paramref name="directoryTemplate"/>, or <paramref name="fileTemplate"/> is null.</exception>
         /// <exception cref="ArgumentException"><paramref name="accountName"/>, <paramref name="accountKey"/>, <paramref name="fileSystemName"/>, <paramref name="directoryTemplate"/>, or <paramref name="fileTemplate"/> is empty.</exception>
         public AzureDataLakeStorageDataFeedSource(string accountName, string accountKey, string fileSystemName, string directoryTemplate, string fileTemplate)
-            : base(DataFeedSourceType.AzureDataLakeStorage)
+            : base(DataFeedSourceKind.AzureDataLakeStorage)
         {
             Argument.AssertNotNullOrEmpty(accountName, nameof(accountName));
             Argument.AssertNotNullOrEmpty(accountKey, nameof(accountKey));
@@ -66,7 +66,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
         }
 
         internal AzureDataLakeStorageDataFeedSource(AzureDataLakeStorageGen2Parameter parameter, AuthenticationTypeEnum? authentication, string credentialId)
-            : base(DataFeedSourceType.AzureDataLakeStorage)
+            : base(DataFeedSourceKind.AzureDataLakeStorage)
         {
             Argument.AssertNotNull(parameter, nameof(parameter));
 

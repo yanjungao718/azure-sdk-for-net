@@ -9,76 +9,76 @@ namespace Azure.AI.MetricsAdvisor.Models
     /// The type of data source that ingests a <see cref="DataFeed"/> with data.
     /// </summary>
     [CodeGenModel("DataSourceType")]
-    public readonly partial struct DataFeedSourceType
+    public readonly partial struct DataFeedSourceKind
     {
         /// <summary>
         /// Azure Application Insights.
         /// </summary>
-        public static DataFeedSourceType AzureApplicationInsights { get; } = new DataFeedSourceType(AzureApplicationInsightsValue);
+        public static DataFeedSourceKind AzureApplicationInsights { get; } = new DataFeedSourceKind(AzureApplicationInsightsValue);
 
         /// <summary>
         /// Azure Blob Storage.
         /// </summary>
-        public static DataFeedSourceType AzureBlob { get; } = new DataFeedSourceType(AzureBlobValue);
+        public static DataFeedSourceKind AzureBlob { get; } = new DataFeedSourceKind(AzureBlobValue);
 
         /// <summary>
         /// Azure Cosmos DB.
         /// </summary>
         [CodeGenMember("AzureCosmosDB")]
-        public static DataFeedSourceType AzureCosmosDb { get; } = new DataFeedSourceType(AzureCosmosDbValue);
+        public static DataFeedSourceKind AzureCosmosDb { get; } = new DataFeedSourceKind(AzureCosmosDbValue);
 
         /// <summary>
         /// Azure Data Explorer.
         /// </summary>
-        public static DataFeedSourceType AzureDataExplorer { get; } = new DataFeedSourceType(AzureDataExplorerValue);
+        public static DataFeedSourceKind AzureDataExplorer { get; } = new DataFeedSourceKind(AzureDataExplorerValue);
 
         /// <summary>
         /// Azure Data Lake Storage Gen2.
         /// </summary>
         [CodeGenMember("AzureDataLakeStorageGen2")]
-        public static DataFeedSourceType AzureDataLakeStorage { get; } = new DataFeedSourceType(AzureDataLakeStorageValue);
+        public static DataFeedSourceKind AzureDataLakeStorage { get; } = new DataFeedSourceKind(AzureDataLakeStorageValue);
 
         /// <summary>
         /// Azure Event Hubs.
         /// </summary>
-        public static DataFeedSourceType AzureEventHubs { get; } = new DataFeedSourceType(AzureEventHubsValue);
+        public static DataFeedSourceKind AzureEventHubs { get; } = new DataFeedSourceKind(AzureEventHubsValue);
 
         /// <summary>
         /// Azure Table.
         /// </summary>
-        public static DataFeedSourceType AzureTable { get; } = new DataFeedSourceType(AzureTableValue);
+        public static DataFeedSourceKind AzureTable { get; } = new DataFeedSourceKind(AzureTableValue);
 
         /// <summary>
         /// InfluxDB.
         /// </summary>
         [CodeGenMember("InfluxDB")]
-        public static DataFeedSourceType InfluxDb { get; } = new DataFeedSourceType(InfluxDbValue);
+        public static DataFeedSourceKind InfluxDb { get; } = new DataFeedSourceKind(InfluxDbValue);
 
         /// <summary>
         /// Log Analytics.
         /// </summary>
         [CodeGenMember("AzureLogAnalytics")]
-        public static DataFeedSourceType LogAnalytics { get; } = new DataFeedSourceType(LogAnalyticsValue);
+        public static DataFeedSourceKind LogAnalytics { get; } = new DataFeedSourceKind(LogAnalyticsValue);
 
         /// <summary>
         /// MongoDB.
         /// </summary>
         [CodeGenMember("MongoDB")]
-        public static DataFeedSourceType MongoDb { get; } = new DataFeedSourceType(MongoDbValue);
+        public static DataFeedSourceKind MongoDb { get; } = new DataFeedSourceKind(MongoDbValue);
 
         /// <summary>
         /// MySQL.
         /// </summary>
-        public static DataFeedSourceType MySql { get; } = new DataFeedSourceType(MySqlValue);
+        public static DataFeedSourceKind MySql { get; } = new DataFeedSourceKind(MySqlValue);
 
         /// <summary>
         /// PostgreSQL.
         /// </summary>
-        public static DataFeedSourceType PostgreSql { get; } = new DataFeedSourceType(PostgreSqlValue);
+        public static DataFeedSourceKind PostgreSql { get; } = new DataFeedSourceKind(PostgreSqlValue);
 
         /// <summary>
         /// SQL Server.
         /// </summary>
-        public static DataFeedSourceType SqlServer { get; } = new DataFeedSourceType(SqlServerValue);
+        public static DataFeedSourceKind SqlServer { get; } = new DataFeedSourceKind(SqlServerValue);
     }
 }

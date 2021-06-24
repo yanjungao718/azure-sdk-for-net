@@ -40,9 +40,9 @@ namespace Azure.AI.MetricsAdvisor
         /// <param name="userPrincipal"> user who gives this feedback. </param>
         /// <param name="metricId"> metric unique id. </param>
         /// <param name="dimensionFilter"> . </param>
-        internal MetricFeedback(MetricFeedbackType type, string id, DateTimeOffset? createdTime, string userPrincipal, string metricId, FeedbackDimensionFilter dimensionFilter)
+        internal MetricFeedback(MetricFeedbackKind type, string id, DateTimeOffset? createdTime, string userPrincipal, string metricId, FeedbackDimensionFilter dimensionFilter)
         {
-            Type = type;
+            Kind = type;
             Id = id;
             CreatedTime = createdTime;
             UserPrincipal = userPrincipal;
@@ -50,9 +50,9 @@ namespace Azure.AI.MetricsAdvisor
             DimensionKey = new DimensionKey(dimensionFilter.Dimension);
         }
 
-        /// <summary> The <see cref="MetricFeedbackType"/> of this feedback.</summary>
+        /// <summary> The <see cref="MetricFeedbackKind"/> of this feedback.</summary>
         [CodeGenMember("FeedbackType")]
-        public MetricFeedbackType Type { get; internal set; }
+        public MetricFeedbackKind Kind { get; internal set; }
 
         /// <summary> feedback unique id. </summary>
         [CodeGenMember("FeedbackId")]
