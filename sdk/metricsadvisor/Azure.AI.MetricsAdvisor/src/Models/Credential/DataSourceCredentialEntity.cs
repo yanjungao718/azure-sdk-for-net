@@ -12,7 +12,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
     /// Provides different ways of authenticating to a <see cref="DataFeedSource"/> for data ingestion when the
     /// default authentication method does not suffice. The supported credentials are:
     /// <list type="bullet">
-    ///   <item><see cref="DataSourceDataLakeGen2SharedKey"/></item>
+    ///   <item><see cref="DataSourceDataLakeSharedKey"/></item>
     ///   <item><see cref="DataSourceServicePrincipal"/></item>
     ///   <item><see cref="DataSourceServicePrincipalInKeyVault"/></item>
     ///   <item><see cref="DataSourceSqlConnectionString"/></item>
@@ -53,7 +53,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
         {
             DataSourceCredentialPatch patch = this switch
             {
-                DataSourceDataLakeGen2SharedKey c => new DataLakeGen2SharedKeyCredentialPatch()
+                DataSourceDataLakeSharedKey c => new DataLakeGen2SharedKeyCredentialPatch()
                 {
                     Parameters = new() { AccountKey = c.AccountKey }
                 },
@@ -95,7 +95,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
                     case "AzureSQLConnectionString":
                         return DataSourceSqlConnectionString.DeserializeDataSourceSqlConnectionString(element);
                     case "DataLakeGen2SharedKey":
-                        return DataSourceDataLakeGen2SharedKey.DeserializeDataSourceDataLakeGen2SharedKey(element);
+                        return DataSourceDataLakeSharedKey.DeserializeDataSourceDataLakeSharedKey(element);
                     case "ServicePrincipal":
                         return DataSourceServicePrincipal.DeserializeDataSourceServicePrincipal(element);
                     case "ServicePrincipalInKV":

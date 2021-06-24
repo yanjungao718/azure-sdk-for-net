@@ -11,7 +11,7 @@ using Azure.Core;
 
 namespace Azure.AI.MetricsAdvisor.Administration
 {
-    public partial class DataSourceDataLakeGen2SharedKey : IUtf8JsonSerializable
+    public partial class DataSourceDataLakeSharedKey : IUtf8JsonSerializable
     {
         void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
         {
@@ -30,7 +30,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
             writer.WriteEndObject();
         }
 
-        internal static DataSourceDataLakeGen2SharedKey DeserializeDataSourceDataLakeGen2SharedKey(JsonElement element)
+        internal static DataSourceDataLakeSharedKey DeserializeDataSourceDataLakeSharedKey(JsonElement element)
         {
             DataLakeGen2SharedKeyParam parameters = default;
             DataSourceCredentialType dataSourceCredentialType = default;
@@ -65,7 +65,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
                     continue;
                 }
             }
-            return new DataSourceDataLakeGen2SharedKey(dataSourceCredentialType, dataSourceCredentialId.Value, dataSourceCredentialName, dataSourceCredentialDescription.Value, parameters);
+            return new DataSourceDataLakeSharedKey(dataSourceCredentialType, dataSourceCredentialId.Value, dataSourceCredentialName, dataSourceCredentialDescription.Value, parameters);
         }
     }
 }
