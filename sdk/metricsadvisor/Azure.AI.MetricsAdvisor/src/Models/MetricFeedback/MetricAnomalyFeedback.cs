@@ -71,15 +71,17 @@ namespace Azure.AI.MetricsAdvisor
         /// by <see cref="StartTime"/> and <see cref="EndTime"/>, without regard for the configuration used
         /// to detect them.
         /// </summary>
-        public string AnomalyDetectionConfigurationId { get; set; }
+        [CodeGenMember("AnomalyDetectionConfigurationId")]
+        public string DetectionConfigurationId { get; set; }
 
         /// <summary>
         /// A snapshot of the <see cref="AnomalyDetectionConfiguration"/> to which this feedback applies,
         /// taken at the moment this feedback was created. Even if the original configuration changes, this
-        /// snapshot will remain unaltered. If no <see cref="AnomalyDetectionConfigurationId"/> was specified
+        /// snapshot will remain unaltered. If no <see cref="DetectionConfigurationId"/> was specified
         /// during creation, this property will be <c>null</c>.
         /// </summary>
-        public AnomalyDetectionConfiguration AnomalyDetectionConfigurationSnapshot { get; }
+        [CodeGenMember("AnomalyDetectionConfigurationSnapshot")]
+        public AnomalyDetectionConfiguration DetectionConfigurationSnapshot { get; }
 
         /// <summary>
         /// The <see cref="Models.AnomalyValue"/> for the feedback.

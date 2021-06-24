@@ -23,24 +23,24 @@ namespace Azure.AI.MetricsAdvisor
             writer.WriteStringValue(EndTime, "O");
             writer.WritePropertyName("value");
             writer.WriteObjectValue(ValueInternal);
-            if (Optional.IsDefined(AnomalyDetectionConfigurationId))
+            if (Optional.IsDefined(DetectionConfigurationId))
             {
-                if (AnomalyDetectionConfigurationId != null)
+                if (DetectionConfigurationId != null)
                 {
                     writer.WritePropertyName("anomalyDetectionConfigurationId");
-                    writer.WriteStringValue(AnomalyDetectionConfigurationId);
+                    writer.WriteStringValue(DetectionConfigurationId);
                 }
                 else
                 {
                     writer.WriteNull("anomalyDetectionConfigurationId");
                 }
             }
-            if (Optional.IsDefined(AnomalyDetectionConfigurationSnapshot))
+            if (Optional.IsDefined(DetectionConfigurationSnapshot))
             {
-                if (AnomalyDetectionConfigurationSnapshot != null)
+                if (DetectionConfigurationSnapshot != null)
                 {
                     writer.WritePropertyName("anomalyDetectionConfigurationSnapshot");
-                    writer.WriteObjectValue(AnomalyDetectionConfigurationSnapshot);
+                    writer.WriteObjectValue(DetectionConfigurationSnapshot);
                 }
                 else
                 {
