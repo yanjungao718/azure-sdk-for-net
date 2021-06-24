@@ -25,7 +25,7 @@ namespace Azure.AI.MetricsAdvisor.Models
             Id = id;
             StartTime = startTime;
             LastTime = endTime;
-            RootDimensionKey = new DimensionKey(rootNode.Dimension);
+            RootSeriesKey = new DimensionKey(rootNode.Dimension);
             Severity = property.MaxSeverity;
             Status = property.IncidentStatus;
             ValueOfRootNode = property.ValueOfRootNode;
@@ -69,7 +69,8 @@ namespace Azure.AI.MetricsAdvisor.Models
         /// as the data point at the root of this incident's root-cause analysis tree. In this key, a value
         /// is assigned to every dimension column contained in the associated <see cref="DataFeed"/>.
         /// </summary>
-        public DimensionKey RootDimensionKey { get; }
+        [CodeGenMember("RootDimensionKey")]
+        public DimensionKey RootSeriesKey { get; }
 
         /// <summary>
         /// Corresponds to the time, in UTC, when the first associated <see cref="DataPointAnomaly"/> occurred.

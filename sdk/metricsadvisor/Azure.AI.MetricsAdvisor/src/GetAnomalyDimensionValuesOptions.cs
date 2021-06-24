@@ -37,7 +37,7 @@ namespace Azure.AI.MetricsAdvisor
         /// Filters the result by series. Only anomalies detected in the time series group specified will
         /// be returned.
         /// </summary>
-        public DimensionKey DimensionToFilter { get; set; }
+        public DimensionKey SeriesGroupKey { get; set; }
 
         /// <summary>
         /// If set, skips the first set of items returned. This property specifies the amount of items to

@@ -16,7 +16,7 @@ namespace Azure.AI.MetricsAdvisor.Models
         /// The key that, within a metric, uniquely identifies the time series in which this <see cref="IncidentRootCause"/> has been created.
         /// </summary>
         [CodeGenMember("RootCause")]
-        public DimensionKey SeriesKey { get; }
+        public DimensionKey SeriesGroupKey { get; }
 
         /// <summary>
         /// The drill down path from query anomaly to root cause.

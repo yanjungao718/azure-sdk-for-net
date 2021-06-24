@@ -360,7 +360,7 @@ namespace Azure.AI.MetricsAdvisor
             Argument.AssertNotNull(options, nameof(options)); // TODO: add validation for options.SeriesToFilter?
 
             Guid metricGuid = ClientCommon.ValidateGuid(metricId, nameof(metricId));
-            IEnumerable<IDictionary<string, string>> series = options.SeriesToFilter.Select(key => key.Dimension);
+            IEnumerable<IDictionary<string, string>> series = options.SeriesKeys.Select(key => key.Dimension);
             MetricDataQueryOptions queryOptions = new MetricDataQueryOptions(ClientCommon.NormalizeDateTimeOffset(options.StartTime), ClientCommon.NormalizeDateTimeOffset(options.EndTime), series);
 
             async Task<Page<MetricSeriesData>> FirstPageFunc(int? pageSizeHint)
@@ -399,7 +399,7 @@ namespace Azure.AI.MetricsAdvisor
             Argument.AssertNotNull(options, nameof(options)); // TODO: add validation for options.SeriesToFilter?
 
             Guid metricGuid = ClientCommon.ValidateGuid(metricId, nameof(metricId));
-            IEnumerable<IDictionary<string, string>> series = options.SeriesToFilter.Select(key => key.Dimension);
+            IEnumerable<IDictionary<string, string>> series = options.SeriesKeys.Select(key => key.Dimension);
             MetricDataQueryOptions queryOptions = new MetricDataQueryOptions(ClientCommon.NormalizeDateTimeOffset(options.StartTime), ClientCommon.NormalizeDateTimeOffset(options.EndTime), series);
 
             Page<MetricSeriesData> FirstPageFunc(int? pageSizeHint)
@@ -553,11 +553,11 @@ namespace Azure.AI.MetricsAdvisor
 
             MetricFeedbackFilter queryOptions = new MetricFeedbackFilter(metricGuid)
             {
-                DimensionFilter = options?.DimensionFilter,
-                EndTime = options?.EndTime,
-                FeedbackType = options?.FeedbackKind,
-                StartTime = options?.StartTime,
-                TimeMode = options?.TimeMode
+                DimensionFilter = options?.Filter,
+                EndTime = options?.Filter?.EndTime,
+                FeedbackType = options?.Filter?.FeedbackKind,
+                StartTime = options?.Filter?.StartTime,
+                TimeMode = options?.Filter?.TimeMode
             };
             int? skip = options?.Skip;
             int? maxPageSize = options?.MaxPageSize;
@@ -618,11 +618,11 @@ namespace Azure.AI.MetricsAdvisor
 
             MetricFeedbackFilter queryOptions = new MetricFeedbackFilter(metricGuid)
             {
-                DimensionFilter = options?.DimensionFilter,
-                EndTime = options?.EndTime,
-                FeedbackType = options?.FeedbackKind,
-                StartTime = options?.StartTime,
-                TimeMode = options?.TimeMode
+                DimensionFilter = options?.Filter,
+                EndTime = options?.Filter?.EndTime,
+                FeedbackType = options?.Filter?.FeedbackKind,
+                StartTime = options?.Filter?.StartTime,
+                TimeMode = options?.Filter?.TimeMode
             };
             int? skip = options?.Skip;
             int? maxPageSize = options?.MaxPageSize;
@@ -1202,7 +1202,7 @@ namespace Azure.AI.MetricsAdvisor
             Guid detectionConfigurationGuid = ClientCommon.ValidateGuid(detectionConfigurationId, nameof(detectionConfigurationId));
             AnomalyDimensionQuery queryOptions = new AnomalyDimensionQuery(ClientCommon.NormalizeDateTimeOffset(options.StartTime), ClientCommon.NormalizeDateTimeOffset(options.EndTime), dimensionName)
             {
-                DimensionFilter = options.DimensionToFilter?.Clone()
+                DimensionFilter = options.SeriesGroupKey?.Clone()
             };
             int? skip = options.Skip;
             int? maxPageSize = options.MaxPageSize;
@@ -1264,7 +1264,7 @@ namespace Azure.AI.MetricsAdvisor
             Guid detectionConfigurationGuid = ClientCommon.ValidateGuid(detectionConfigurationId, nameof(detectionConfigurationId));
             AnomalyDimensionQuery queryOptions = new AnomalyDimensionQuery(ClientCommon.NormalizeDateTimeOffset(options.StartTime), ClientCommon.NormalizeDateTimeOffset(options.EndTime), dimensionName)
             {
-                DimensionFilter = options.DimensionToFilter?.Clone()
+                DimensionFilter = options.SeriesGroupKey?.Clone()
             };
             int? skip = options.Skip;
             int? maxPageSize = options.MaxPageSize;

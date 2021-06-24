@@ -20,36 +20,7 @@ namespace Azure.AI.MetricsAdvisor
         }
 
         /// <summary> The dimension filter. </summary>
-        internal FeedbackDimensionFilter DimensionFilter => Filter.Dimension == null ? null : new FeedbackDimensionFilter(Filter.Dimension);
-
-        /// <summary>
-        /// Filters the result by series. Only feedbacks for the series in the time series group specified will
-        /// be returned.
-        /// </summary>
-        public DimensionKey Filter { get; set; }
-
-        /// <summary>
-        /// Filters the result by <see cref="MetricFeedback.Kind"/>.
-        /// </summary>
-        public MetricFeedbackKind? FeedbackKind { get; set; }
-
-        /// <summary>
-        /// Filters the result under the chosen <see cref="TimeMode"/>. Only results from this point in time,
-        /// in UTC, will be returned.
-        /// </summary>
-        public DateTimeOffset? StartTime { get; set; }
-
-        /// <summary>
-        /// Filters the result under the chosen <see cref="TimeMode"/>. Only results up to this point in time,
-        /// in UTC, will be returned.
-        /// </summary>
-        public DateTimeOffset? EndTime { get; set; }
-
-        /// <summary>
-        /// Specifies to which time property of a <see cref="MetricFeedback"/> the filters <see cref="StartTime"/>
-        /// and <see cref="EndTime"/> will be applied.
-        /// </summary>
-        public FeedbackQueryTimeMode? TimeMode { get; set; }
+        public FeedbackDimensionFilter Filter { get; set; }
 
         /// <summary>
         /// If set, skips the first set of items returned. This property specifies the amount of items to

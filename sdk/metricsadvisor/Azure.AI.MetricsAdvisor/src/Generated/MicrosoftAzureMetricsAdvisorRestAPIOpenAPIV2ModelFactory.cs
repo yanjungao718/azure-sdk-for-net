@@ -65,15 +65,15 @@ namespace Azure.AI.MetricsAdvisor
         }
 
         /// <summary> Initializes new instance of IncidentRootCause class. </summary>
-        /// <param name="seriesKey"> . </param>
+        /// <param name="seriesGroupKey"> . </param>
         /// <param name="paths"> drilling down path from query anomaly to root cause. </param>
         /// <param name="contributionScore"> score of the root cause. </param>
         /// <param name="description"> description of the root cause. </param>
         /// <returns> A new <see cref="Models.IncidentRootCause"/> instance for mocking. </returns>
-        public static IncidentRootCause IncidentRootCause(DimensionKey seriesKey = default, IReadOnlyList<string> paths = default, double contributionScore = default, string description = default)
+        public static IncidentRootCause IncidentRootCause(DimensionKey seriesGroupKey = default, IReadOnlyList<string> paths = default, double contributionScore = default, string description = default)
         {
             paths ??= new List<string>();
-            return new IncidentRootCause(seriesKey, paths, contributionScore, description);
+            return new IncidentRootCause(seriesGroupKey, paths, contributionScore, description);
         }
 
         /// <summary> Initializes new instance of DataFeedMetric class. </summary>

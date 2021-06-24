@@ -15,16 +15,16 @@ namespace Azure.AI.MetricsAdvisor.Models
     public partial class IncidentRootCause
     {
         /// <summary> Initializes a new instance of IncidentRootCause. </summary>
-        /// <param name="seriesKey"> . </param>
+        /// <param name="seriesGroupKey"> . </param>
         /// <param name="paths"> drilling down path from query anomaly to root cause. </param>
         /// <param name="contributionScore"> score of the root cause. </param>
         /// <param name="description"> description of the root cause. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="seriesKey"/>, <paramref name="paths"/>, or <paramref name="description"/> is null. </exception>
-        internal IncidentRootCause(DimensionKey seriesKey, IEnumerable<string> paths, double contributionScore, string description)
+        /// <exception cref="ArgumentNullException"> <paramref name="seriesGroupKey"/>, <paramref name="paths"/>, or <paramref name="description"/> is null. </exception>
+        internal IncidentRootCause(DimensionKey seriesGroupKey, IEnumerable<string> paths, double contributionScore, string description)
         {
-            if (seriesKey == null)
+            if (seriesGroupKey == null)
             {
-                throw new ArgumentNullException(nameof(seriesKey));
+                throw new ArgumentNullException(nameof(seriesGroupKey));
             }
             if (paths == null)
             {
@@ -35,20 +35,20 @@ namespace Azure.AI.MetricsAdvisor.Models
                 throw new ArgumentNullException(nameof(description));
             }
 
-            SeriesKey = seriesKey;
+            SeriesGroupKey = seriesGroupKey;
             Paths = paths.ToList();
             ContributionScore = contributionScore;
             Description = description;
         }
 
         /// <summary> Initializes a new instance of IncidentRootCause. </summary>
-        /// <param name="seriesKey"> . </param>
+        /// <param name="seriesGroupKey"> . </param>
         /// <param name="paths"> drilling down path from query anomaly to root cause. </param>
         /// <param name="contributionScore"> score of the root cause. </param>
         /// <param name="description"> description of the root cause. </param>
-        internal IncidentRootCause(DimensionKey seriesKey, IReadOnlyList<string> paths, double contributionScore, string description)
+        internal IncidentRootCause(DimensionKey seriesGroupKey, IReadOnlyList<string> paths, double contributionScore, string description)
         {
-            SeriesKey = seriesKey;
+            SeriesGroupKey = seriesGroupKey;
             Paths = paths;
             ContributionScore = contributionScore;
             Description = description;
