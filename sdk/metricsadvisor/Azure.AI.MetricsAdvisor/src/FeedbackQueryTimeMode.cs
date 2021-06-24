@@ -1,7 +1,6 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
 
-using Azure.AI.MetricsAdvisor.Models;
 using Azure.Core;
 
 namespace Azure.AI.MetricsAdvisor
@@ -12,16 +11,13 @@ namespace Azure.AI.MetricsAdvisor
     /// operations.
     /// </summary>
     [CodeGenModel("FeedbackQueryTimeMode")]
-    public readonly partial struct FeedbackQueryTimeMode
+    public enum FeedbackQueryTimeMode
     {
         /// <summary>
-        /// Filters feedbacks by its metric's timestamps.
         /// </summary>
-        public static FeedbackQueryTimeMode MetricTimestamp { get; } = new FeedbackQueryTimeMode(MetricTimestampValue);
-
+        MetricTimestamp,
         /// <summary>
-        /// Filters feedbacks by <see cref="MetricFeedback.CreatedTime"/>.
         /// </summary>
-        public static FeedbackQueryTimeMode FeedbackCreatedTime { get; } = new FeedbackQueryTimeMode(FeedbackCreatedTimeValue);
+        FeedbackCreatedTime
     }
 }
