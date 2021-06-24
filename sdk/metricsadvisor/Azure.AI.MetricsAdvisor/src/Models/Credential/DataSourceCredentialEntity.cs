@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 
 using System;
+using System.Text.Json;
 using Azure.AI.MetricsAdvisor.Models;
 using Azure.Core;
 
@@ -18,7 +19,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
     /// </list>
     /// </summary>
     [CodeGenModel("DataSourceCredential")]
-    public partial class DataSourceCredentialEntity
+    public abstract partial class DataSourceCredentialEntity
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DataSourceCredentialEntity"/> class.
@@ -83,6 +84,30 @@ namespace Azure.AI.MetricsAdvisor.Administration
             patch.DataSourceCredentialDescription = Description;
 
             return patch;
+        }
+
+        internal static DataSourceCredentialEntity DeserializeDataSourceCredentialEntity(JsonElement element)
+        {
+            if (element.TryGetProperty("dataSourceCredentialType", out JsonElement discriminator))
+            {
+                switch (discriminator.GetString())
+                {
+                    case "AzureSQLConnectionString":
+                        return DataSourceSqlConnectionString.DeserializeDataSourceSqlConnectionString(element);
+                    case "DataLakeGen2SharedKey":
+                        return DataSourceDataLakeGen2SharedKey.DeserializeDataSourceDataLakeGen2SharedKey(element);
+                    case "ServicePrincipal":
+                        return DataSourceServicePrincipal.DeserializeDataSourceServicePrincipal(element);
+                    case "ServicePrincipalInKV":
+                        return DataSourceServicePrincipalInKeyVault.DeserializeDataSourceServicePrincipalInKeyVault(element);
+                    default:
+                        throw new Exception("Credential type not supported.");
+                }
+            }
+            else
+            {
+                throw new Exception("Credential type not returned.");
+            }
         }
     }
 }
