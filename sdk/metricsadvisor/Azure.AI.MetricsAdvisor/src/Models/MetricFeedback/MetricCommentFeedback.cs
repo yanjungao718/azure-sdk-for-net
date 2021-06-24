@@ -14,10 +14,10 @@ namespace Azure.AI.MetricsAdvisor
     {
         /// <summary> Initializes a new <see cref="MetricCommentFeedback"/> instance. </summary>
         /// <param name="metricId"> The metric unique id. </param>
-        /// <param name="dimensionFilter"> The <see cref="FeedbackDimensionFilter"/> to apply to the feedback. </param>
+        /// <param name="dimensionKey"> The <see cref="FeedbackDimensionFilter"/> to apply to the feedback. </param>
         /// <param name="comment"> The comment content for the feedback. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="dimensionFilter"/> or <paramref name="comment"/> is null. </exception>
-        public MetricCommentFeedback(string metricId, FeedbackDimensionFilter dimensionFilter, string comment) : base(metricId, dimensionFilter)
+        /// <exception cref="ArgumentNullException"> <paramref name="dimensionKey"/> or <paramref name="comment"/> is null. </exception>
+        public MetricCommentFeedback(string metricId, DimensionKey dimensionKey, string comment) : base(metricId, dimensionKey)
         {
             Argument.AssertNotNullOrEmpty(comment, nameof(comment));
 

@@ -17,19 +17,18 @@ namespace Azure.AI.MetricsAdvisor
     {
         /// <summary> Initializes a new instance of <see cref="MetricAnomalyFeedback"/>. </summary>
         /// <param name="metricId"> The metric unique id. </param>
-        /// <param name="dimensionFilter"> The dimension filter. </param>
+        /// <param name="dimensionKey"> The dimension filter. </param>
         /// <param name="startTime"> The start timestamp of feedback timerange. </param>
         /// <param name="endTime"> The end timestamp of feedback timerange. When this is equal to <paramref name="startTime"/> it indicates a single timestamp. </param>
         /// <param name="value"> The <see cref="Models.AnomalyValue"/> for the feedback. </param>
-        /// <exception cref="ArgumentNullException"> <paramref name="dimensionFilter"/> or <paramref name="value"/> is null. </exception>
-        public MetricAnomalyFeedback(string metricId, FeedbackDimensionFilter dimensionFilter, DateTimeOffset startTime, DateTimeOffset endTime, AnomalyValue value) : base(metricId, dimensionFilter)
+        /// <exception cref="ArgumentNullException"> <paramref name="dimensionKey"/> or <paramref name="value"/> is null. </exception>
+        public MetricAnomalyFeedback(string metricId, DimensionKey dimensionKey, DateTimeOffset startTime, DateTimeOffset endTime, AnomalyValue value) : base(metricId, dimensionKey)
         {
             if (value == default)
             {
                 throw new ArgumentNullException(nameof(value));
             }
 
-            DimensionFilter = dimensionFilter;
             StartTime = startTime;
             EndTime = endTime;
             ValueInternal = new AnomalyFeedbackValue(value);

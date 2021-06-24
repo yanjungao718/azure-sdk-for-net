@@ -24,7 +24,30 @@ namespace Azure.AI.MetricsAdvisor
             Argument.AssertNotNull(dimensionFilter, nameof(dimensionFilter));
 
             MetricId = metricId;
-            DimensionFilter = dimensionFilter;
+            DimensionKey = new DimensionKey(dimensionFilter.Dimension);
+        }
+
+        internal MetricFeedback(string metricId, DimensionKey dimensionKey)
+        {
+            MetricId = metricId;
+            DimensionKey = dimensionKey;
+        }
+
+        /// <summary> Initializes a new instance of MetricFeedback. </summary>
+        /// <param name="type"> feedback type. </param>
+        /// <param name="id"> feedback unique id. </param>
+        /// <param name="createdTime"> feedback created time. </param>
+        /// <param name="userPrincipal"> user who gives this feedback. </param>
+        /// <param name="metricId"> metric unique id. </param>
+        /// <param name="dimensionFilter"> . </param>
+        internal MetricFeedback(FeedbackType type, string id, DateTimeOffset? createdTime, string userPrincipal, string metricId, FeedbackDimensionFilter dimensionFilter)
+        {
+            Type = type;
+            Id = id;
+            CreatedTime = createdTime;
+            UserPrincipal = userPrincipal;
+            MetricId = metricId;
+            DimensionKey = new DimensionKey(dimensionFilter.Dimension);
         }
 
         /// <summary> The <see cref="FeedbackType"/> of this feedback.</summary>
@@ -44,8 +67,12 @@ namespace Azure.AI.MetricsAdvisor
         /// <summary> metric unique id. </summary>
         public string MetricId { get; }
 
+        /// <summary>
+        /// </summary>
+        public DimensionKey DimensionKey { get; }
+
         /// <summary> The dimension filter. </summary>
-        public FeedbackDimensionFilter DimensionFilter { get; internal set; }
+        internal FeedbackDimensionFilter DimensionFilter => new FeedbackDimensionFilter(DimensionKey.Dimension);
 
         internal static MetricFeedback DeserializeMetricFeedback(JsonElement element)
         {
