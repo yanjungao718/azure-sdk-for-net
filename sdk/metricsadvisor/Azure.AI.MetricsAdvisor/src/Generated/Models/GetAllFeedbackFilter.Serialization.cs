@@ -27,7 +27,7 @@ namespace Azure.AI.MetricsAdvisor.Models
             writer.WriteEndObject();
         }
 
-        internal static GetAllFeedbackFilter DeserializeFeedbackDimensionFilter(JsonElement element)
+        internal static GetAllFeedbackFilter DeserializeGetAllFeedbackFilter(JsonElement element)
         {
             IDictionary<string, string> dimension = default;
             foreach (var property in element.EnumerateObject())

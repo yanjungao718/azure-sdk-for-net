@@ -138,7 +138,7 @@ namespace Azure.AI.MetricsAdvisor
                 }
                 if (property.NameEquals("dimensionFilter"))
                 {
-                    dimensionFilter = GetAllFeedbackFilter.DeserializeFeedbackDimensionFilter(property.Value);
+                    dimensionFilter = GetAllFeedbackFilter.DeserializeGetAllFeedbackFilter(property.Value);
                     continue;
                 }
             }
