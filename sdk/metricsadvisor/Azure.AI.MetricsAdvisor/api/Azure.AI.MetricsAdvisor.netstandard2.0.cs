@@ -23,7 +23,7 @@ namespace Azure.AI.MetricsAdvisor
     public partial class GetAllFeedbackOptions
     {
         public GetAllFeedbackOptions() { }
-        public Azure.AI.MetricsAdvisor.Models.FeedbackDimensionFilter Filter { get { throw null; } set { } }
+        public Azure.AI.MetricsAdvisor.Models.GetAllFeedbackFilter Filter { get { throw null; } set { } }
         public int? MaxPageSize { get { throw null; } set { } }
         public int? Skip { get { throw null; } set { } }
     }
@@ -1012,9 +1012,9 @@ namespace Azure.AI.MetricsAdvisor.Models
         public string Status { get { throw null; } }
         public System.DateTimeOffset Timestamp { get { throw null; } }
     }
-    public partial class FeedbackDimensionFilter
+    public partial class GetAllFeedbackFilter
     {
-        public FeedbackDimensionFilter() { }
+        public GetAllFeedbackFilter() { }
         public Azure.AI.MetricsAdvisor.Models.DimensionKey DimensionKey { get { throw null; } set { } }
         public System.DateTimeOffset? EndTime { get { throw null; } set { } }
         public Azure.AI.MetricsAdvisor.Models.MetricFeedbackKind? FeedbackKind { get { throw null; } set { } }
