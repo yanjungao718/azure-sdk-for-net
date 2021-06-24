@@ -27,7 +27,7 @@ namespace Azure.AI.MetricsAdvisor
             Argument.AssertNotNull(dimensionKey, nameof(dimensionKey));
 
             ValueInternal = new PeriodFeedbackValue(periodType, periodValue);
-            Type = FeedbackType.Period;
+            Type = MetricFeedbackType.Period;
         }
 
         /// <summary> Initializes a new instance of MetricPeriodFeedback. </summary>
@@ -51,7 +51,7 @@ namespace Azure.AI.MetricsAdvisor
             }
 
             ValueInternal = valueInternal;
-            Type = FeedbackType.Period;
+            Type = MetricFeedbackType.Period;
         }
 
         /// <summary>

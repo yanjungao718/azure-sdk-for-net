@@ -37,7 +37,7 @@ namespace Azure.AI.MetricsAdvisor
             DateTimeOffset startTime = default;
             DateTimeOffset endTime = default;
             ChangePointFeedbackValue value = default;
-            FeedbackType feedbackType = default;
+            MetricFeedbackType feedbackType = default;
             Optional<string> feedbackId = default;
             Optional<DateTimeOffset> createdTime = default;
             Optional<string> userPrincipal = default;
@@ -62,7 +62,7 @@ namespace Azure.AI.MetricsAdvisor
                 }
                 if (property.NameEquals("feedbackType"))
                 {
-                    feedbackType = new FeedbackType(property.Value.GetString());
+                    feedbackType = new MetricFeedbackType(property.Value.GetString());
                     continue;
                 }
                 if (property.NameEquals("feedbackId"))

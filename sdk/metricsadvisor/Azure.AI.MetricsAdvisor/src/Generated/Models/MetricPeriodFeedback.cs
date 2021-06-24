@@ -22,7 +22,7 @@ namespace Azure.AI.MetricsAdvisor
         /// <param name="metricId"> metric unique id. </param>
         /// <param name="dimensionFilter"> . </param>
         /// <param name="valueInternal"> . </param>
-        internal MetricPeriodFeedback(FeedbackType type, string id, DateTimeOffset? createdTime, string userPrincipal, string metricId, FeedbackDimensionFilter dimensionFilter, PeriodFeedbackValue valueInternal) : base(type, id, createdTime, userPrincipal, metricId, dimensionFilter)
+        internal MetricPeriodFeedback(MetricFeedbackType type, string id, DateTimeOffset? createdTime, string userPrincipal, string metricId, FeedbackDimensionFilter dimensionFilter, PeriodFeedbackValue valueInternal) : base(type, id, createdTime, userPrincipal, metricId, dimensionFilter)
         {
             ValueInternal = valueInternal;
             Type = type;
