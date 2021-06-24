@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using Azure.AI.MetricsAdvisor.Models;
 using Azure.Core;
 
@@ -12,7 +13,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
     /// An alert notification to be triggered after an anomaly is detected by Metrics Advisor.
     /// </summary>
     [CodeGenModel("HookInfo")]
-    public partial class NotificationHook
+    public abstract partial class NotificationHook
     {
         internal NotificationHook(string name)
         {
@@ -94,6 +95,26 @@ namespace Azure.AI.MetricsAdvisor.Administration
             patch.Admins = hook.AdministratorsEmails;
 
             return patch;
+        }
+
+        internal static NotificationHook DeserializeNotificationHook(JsonElement element)
+        {
+            if (element.TryGetProperty("hookType", out JsonElement discriminator))
+            {
+                switch (discriminator.GetString())
+                {
+                    case "Email":
+                        return EmailNotificationHook.DeserializeEmailNotificationHook(element);
+                    case "Webhook":
+                        return WebNotificationHook.DeserializeWebNotificationHook(element);
+                    default:
+                        throw new Exception("Hook type not supported.");
+                }
+            }
+            else
+            {
+                throw new Exception("Hook type not returned.");
+            }
         }
     }
 }
