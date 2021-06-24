@@ -60,7 +60,7 @@ namespace Azure.AI.MetricsAdvisor.Models
             Optional<string> anomalyAlertingConfigurationId = default;
             string name = default;
             Optional<string> description = default;
-            Optional<MetricAnomalyAlertConfigurationsOperator> crossMetricsOperator = default;
+            Optional<DetectionConditionOperator> crossMetricsOperator = default;
             Optional<IList<string>> splitAlertByDimensions = default;
             IList<string> hookIds = default;
             IList<MetricAlertConfiguration> metricAlertingConfigurations = default;
@@ -88,7 +88,7 @@ namespace Azure.AI.MetricsAdvisor.Models
                         property.ThrowNonNullablePropertyIsNull();
                         continue;
                     }
-                    crossMetricsOperator = new MetricAnomalyAlertConfigurationsOperator(property.Value.GetString());
+                    crossMetricsOperator = new DetectionConditionOperator(property.Value.GetString());
                     continue;
                 }
                 if (property.NameEquals("splitAlertByDimensions"))
