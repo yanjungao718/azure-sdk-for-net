@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using Azure.AI.MetricsAdvisor.Models;
 using Azure.Core;
@@ -23,14 +24,14 @@ namespace Azure.AI.MetricsAdvisor.Administration
             AdministratorsEmails = new ChangeTrackingList<string>();
         }
 
-        internal NotificationHook(HookType hookType, string id, string name, string description, string internalExternalLink, IReadOnlyList<string> administrators)
+        internal NotificationHook(HookType hookType, string id, string name, string description, string internalExternalLink, IList<string> administrators)
         {
             HookType = hookType;
             Id = id;
             Name = name;
             Description = description;
             ExternalLink = string.IsNullOrEmpty(internalExternalLink) ? null : new Uri(internalExternalLink);
-            AdministratorsEmails = administrators;
+            AdministratorsEmails = administrators?.ToList();
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
         /// The list of user e-mails with administrative rights to manage this hook.
         /// </summary>
         [CodeGenMember("Admins")]
-        public IReadOnlyList<string> AdministratorsEmails { get; }
+        public IList<string> AdministratorsEmails { get; }
 
         /// <summary> The hook type. </summary>
         internal HookType HookType { get; set; }
@@ -92,7 +93,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
             patch.HookName = hook.Name;
             patch.Description = hook.Description;
             patch.ExternalLink = hook.ExternalLink?.AbsoluteUri;
-            patch.Admins = hook.AdministratorsEmails;
+            patch.Admins = hook.AdministratorsEmails?.ToList();
 
             return patch;
         }
