@@ -17,11 +17,11 @@ namespace Azure.AI.MetricsAdvisor
         /// <summary> Initializes a new <see cref="MetricPeriodFeedback"/> instance. </summary>
         /// <param name="metricId"> The metric unique id. </param>
         /// <param name="dimensionKey"> The <see cref="FeedbackDimensionFilter"/> to apply to the feedback. </param>
-        /// <param name="periodType"> The <see cref="Models.PeriodType"/>. </param>
+        /// <param name="periodType"> The <see cref="Models.MetricPeriodType"/>. </param>
         /// <param name="periodValue"> The period value. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="metricId"/> or <paramref name="dimensionKey"/> is null. </exception>
         /// <exception cref="ArgumentException"> <paramref name="metricId"/> is empty. </exception>
-        public MetricPeriodFeedback(string metricId, DimensionKey dimensionKey, PeriodType periodType, int periodValue) : base(metricId, dimensionKey)
+        public MetricPeriodFeedback(string metricId, DimensionKey dimensionKey, MetricPeriodType periodType, int periodValue) : base(metricId, dimensionKey)
         {
             Argument.AssertNotNullOrEmpty(metricId, nameof(metricId));
             Argument.AssertNotNull(dimensionKey, nameof(dimensionKey));
@@ -55,9 +55,9 @@ namespace Azure.AI.MetricsAdvisor
         }
 
         /// <summary>
-        /// The <see cref="Models.PeriodType"/>.
+        /// The <see cref="Models.MetricPeriodType"/>.
         /// </summary>
-        public PeriodType PeriodType { get => ValueInternal.PeriodType; }
+        public MetricPeriodType MetricPeriodType { get => ValueInternal.PeriodType; }
 
         /// <summary>
         /// The period value.
