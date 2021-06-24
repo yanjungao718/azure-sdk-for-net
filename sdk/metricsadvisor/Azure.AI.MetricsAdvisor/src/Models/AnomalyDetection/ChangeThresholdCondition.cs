@@ -29,7 +29,7 @@ namespace Azure.AI.MetricsAdvisor.Models
 
             ChangePercentage = changePercentage;
             ShiftPoint = shiftPoint;
-            IsWithinRange = isWithinRange;
+            WithinRange = isWithinRange;
             AnomalyDetectorDirection = anomalyDetectorDirection;
             SuppressCondition = suppressCondition;
         }
@@ -49,8 +49,7 @@ namespace Azure.AI.MetricsAdvisor.Models
         /// Sets whether to detect data within the range or outside the range. If you want to detect fluctuations, select false.
         /// If you want to detect flat lines in your data, select true.
         /// </summary>
-        [CodeGenMember("WithinRange")]
-        public bool IsWithinRange { get; set; }
+        public bool WithinRange { get; set; }
 
         /// <summary>
         /// A point is considered an anomaly only when the deviation occurs in the specified direction.
@@ -66,7 +65,7 @@ namespace Azure.AI.MetricsAdvisor.Models
         {
             ShiftPoint = ShiftPoint,
             ChangePercentage = ChangePercentage,
-            WithinRange = IsWithinRange,
+            WithinRange = WithinRange,
             AnomalyDetectorDirection = AnomalyDetectorDirection,
             SuppressCondition = SuppressCondition?.GetPatchModel()
         };
