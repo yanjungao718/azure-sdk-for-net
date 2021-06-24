@@ -21,7 +21,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
             Argument.AssertNotNullOrEmpty(name, nameof(name));
 
             Name = name;
-            AdministratorsEmails = new ChangeTrackingList<string>();
+            AdministratorEmails = new ChangeTrackingList<string>();
         }
 
         internal NotificationHook(HookType hookType, string id, string name, string description, string internalExternalLink, IList<string> administrators)
@@ -31,7 +31,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
             Name = name;
             Description = description;
             ExternalLink = string.IsNullOrEmpty(internalExternalLink) ? null : new Uri(internalExternalLink);
-            AdministratorsEmails = administrators?.ToList();
+            AdministratorEmails = administrators?.ToList();
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
         /// The list of user e-mails with administrative rights to manage this hook.
         /// </summary>
         [CodeGenMember("Admins")]
-        public IList<string> AdministratorsEmails { get; }
+        public IList<string> AdministratorEmails { get; }
 
         /// <summary> The hook type. </summary>
         internal HookType HookType { get; set; }
@@ -93,7 +93,7 @@ namespace Azure.AI.MetricsAdvisor.Administration
             patch.HookName = hook.Name;
             patch.Description = hook.Description;
             patch.ExternalLink = hook.ExternalLink?.AbsoluteUri;
-            patch.Admins = hook.AdministratorsEmails?.ToList();
+            patch.Admins = hook.AdministratorEmails?.ToList();
 
             return patch;
         }
