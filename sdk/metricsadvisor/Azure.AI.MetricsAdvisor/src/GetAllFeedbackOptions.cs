@@ -20,7 +20,7 @@ namespace Azure.AI.MetricsAdvisor
         }
 
         /// <summary> The dimension filter. </summary>
-        public FeedbackDimensionFilter Filter { get; set; }
+        public GetAllFeedbackFilter Filter { get; set; }
 
         /// <summary>
         /// If set, skips the first set of items returned. This property specifies the amount of items to

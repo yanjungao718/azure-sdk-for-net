@@ -16,9 +16,9 @@ namespace Azure.AI.MetricsAdvisor
     {
         /// <summary> Initializes a new instance of the <see cref="MetricFeedback"/> class. </summary>
         /// <param name="metricId"> The metric unique Id. </param>
-        /// <param name="dimensionFilter"> The <see cref="FeedbackDimensionFilter" /> to apply to the feedback. </param>
+        /// <param name="dimensionFilter"> The <see cref="GetAllFeedbackFilter" /> to apply to the feedback. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="dimensionFilter"/> is null. </exception>
-        internal MetricFeedback(string metricId, FeedbackDimensionFilter dimensionFilter)
+        internal MetricFeedback(string metricId, GetAllFeedbackFilter dimensionFilter)
         {
             Argument.AssertNotNullOrEmpty(metricId, nameof(metricId));
             Argument.AssertNotNull(dimensionFilter, nameof(dimensionFilter));
@@ -40,7 +40,7 @@ namespace Azure.AI.MetricsAdvisor
         /// <param name="userPrincipal"> user who gives this feedback. </param>
         /// <param name="metricId"> metric unique id. </param>
         /// <param name="dimensionFilter"> . </param>
-        internal MetricFeedback(MetricFeedbackKind type, string id, DateTimeOffset? createdTime, string userPrincipal, string metricId, FeedbackDimensionFilter dimensionFilter)
+        internal MetricFeedback(MetricFeedbackKind type, string id, DateTimeOffset? createdTime, string userPrincipal, string metricId, GetAllFeedbackFilter dimensionFilter)
         {
             Kind = type;
             Id = id;
@@ -72,7 +72,7 @@ namespace Azure.AI.MetricsAdvisor
         public DimensionKey DimensionKey { get; }
 
         /// <summary> The dimension filter. </summary>
-        internal FeedbackDimensionFilter DimensionFilter => new FeedbackDimensionFilter(DimensionKey.Dimension);
+        internal GetAllFeedbackFilter DimensionFilter => new GetAllFeedbackFilter(DimensionKey.Dimension);
 
         internal static MetricFeedback DeserializeMetricFeedback(JsonElement element)
         {

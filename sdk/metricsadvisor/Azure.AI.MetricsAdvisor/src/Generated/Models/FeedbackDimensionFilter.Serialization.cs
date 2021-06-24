@@ -11,7 +11,7 @@ using Azure.Core;
 
 namespace Azure.AI.MetricsAdvisor.Models
 {
-    public partial class FeedbackDimensionFilter : IUtf8JsonSerializable
+    public partial class GetAllFeedbackFilter : IUtf8JsonSerializable
     {
         void IUtf8JsonSerializable.Write(Utf8JsonWriter writer)
         {
@@ -27,7 +27,7 @@ namespace Azure.AI.MetricsAdvisor.Models
             writer.WriteEndObject();
         }
 
-        internal static FeedbackDimensionFilter DeserializeFeedbackDimensionFilter(JsonElement element)
+        internal static GetAllFeedbackFilter DeserializeFeedbackDimensionFilter(JsonElement element)
         {
             IDictionary<string, string> dimension = default;
             foreach (var property in element.EnumerateObject())
@@ -43,7 +43,7 @@ namespace Azure.AI.MetricsAdvisor.Models
                     continue;
                 }
             }
-            return new FeedbackDimensionFilter(dimension);
+            return new GetAllFeedbackFilter(dimension);
         }
     }
 }

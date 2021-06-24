@@ -9,12 +9,12 @@ namespace Azure.AI.MetricsAdvisor
 {
     /// <summary> The CommentFeedback. </summary>
     [CodeGenModel("CommentFeedback")]
-    [CodeGenSuppress(nameof(MetricCommentFeedback), typeof(string), typeof(FeedbackDimensionFilter))]
+    [CodeGenSuppress(nameof(MetricCommentFeedback), typeof(string), typeof(GetAllFeedbackFilter))]
     public partial class MetricCommentFeedback : MetricFeedback
     {
         /// <summary> Initializes a new <see cref="MetricCommentFeedback"/> instance. </summary>
         /// <param name="metricId"> The metric unique id. </param>
-        /// <param name="dimensionKey"> The <see cref="FeedbackDimensionFilter"/> to apply to the feedback. </param>
+        /// <param name="dimensionKey"> The <see cref="GetAllFeedbackFilter"/> to apply to the feedback. </param>
         /// <param name="comment"> The comment content for the feedback. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="dimensionKey"/> or <paramref name="comment"/> is null. </exception>
         public MetricCommentFeedback(string metricId, DimensionKey dimensionKey, string comment) : base(metricId, dimensionKey)
@@ -27,10 +27,10 @@ namespace Azure.AI.MetricsAdvisor
 
         /// <summary> Initializes a new <see cref="MetricCommentFeedback"/> instance. </summary>
         /// <param name="metricId"> The metric unique id. </param>
-        /// <param name="dimensionFilter"> The <see cref="FeedbackDimensionFilter"/> to apply to the feedback. </param>
+        /// <param name="dimensionFilter"> The <see cref="GetAllFeedbackFilter"/> to apply to the feedback. </param>
         /// <param name="comment"> The comment content for the feedback. </param>
         /// <exception cref="ArgumentNullException"> <paramref name="dimensionFilter"/> or <paramref name="comment"/> is null. </exception>
-        internal MetricCommentFeedback(string metricId, FeedbackDimensionFilter dimensionFilter, CommentFeedbackValue comment) : base(metricId, dimensionFilter)
+        internal MetricCommentFeedback(string metricId, GetAllFeedbackFilter dimensionFilter, CommentFeedbackValue comment) : base(metricId, dimensionFilter)
         {
             Argument.AssertNotNullOrEmpty(comment?.CommentValue, nameof(comment.CommentValue));
 
