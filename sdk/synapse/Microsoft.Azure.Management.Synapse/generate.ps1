@@ -1,1 +1,1 @@
-Start-AutoRestCodeGeneration -ResourceProvider "synapse/resource-manager" -AutoRestVersion "v2" -SpecsRepoBranch main
+Start-AutoRestCodeGeneration -ResourceProvider "synapse/resource-manager" -AutoRestVersion "v2" -SpecsRepoFork yanjungao718 -SpecsRepoBranch synapse_generate_code_based_on_latest_swagger_0105 -SdkRepoRootPath D:\code\SDKGeneratedCodeByPSScript\sdk

@@ -13,12 +13,12 @@ namespace Microsoft.Azure.Management.Synapse
 
   internal static partial class SdkInfo
   {
-      public static IEnumerable<Tuple<string, string, string>> ApiInfo_SynapseManagementClient
-      {
-          get
-          {
-              return new Tuple<string, string, string>[]
-              {
+        public static IEnumerable<Tuple<string, string, string>> ApiInfo_SynapseManagementClient
+        {
+            get
+            {
+                return new Tuple<string, string, string>[]
+                {
                 new Tuple<string, string, string>("Synapse", "AzureADOnlyAuthentications", "2021-06-01"),
                 new Tuple<string, string, string>("Synapse", "BigDataPools", "2021-06-01-preview"),
                 new Tuple<string, string, string>("Synapse", "DataMaskingPolicies", "2021-06-01"),
@@ -91,16 +91,16 @@ namespace Microsoft.Azure.Management.Synapse
                 new Tuple<string, string, string>("Synapse", "WorkspaceManagedSqlServerVulnerabilityAssessments", "2021-06-01"),
                 new Tuple<string, string, string>("Synapse", "WorkspaceSqlAadAdmins", "2021-06-01"),
                 new Tuple<string, string, string>("Synapse", "Workspaces", "2021-06-01"),
-              }.AsEnumerable();
-          }
-      }
-      // BEGIN: Code Generation Metadata Section
-      public static readonly String AutoRestVersion = "v2";
+                }.AsEnumerable();
+            }
+        }
+        // BEGIN: Code Generation Metadata Section
+        public static readonly String AutoRestVersion = "v2";
       public static readonly String AutoRestBootStrapperVersion = "autorest@2.0.4413";
       public static readonly String AutoRestCmdExecuted = "cmd.exe /c autorest.cmd https://github.com/Azure/azure-rest-api-specs/blob/main/specification/synapse/resource-manager/readme.md --csharp --version=v2 --reflect-api-versions --csharp-sdks-folder=D:\\code\\azure-sdk-for-net\\sdk";
       public static readonly String GithubForkName = "Azure";
       public static readonly String GithubBranchName = "main";
-      public static readonly String GithubCommidId = "c0f5f5f439ce6152ff3c078f9ba02f2549b2b58c";
+      public static readonly String GithubCommidId = "7b89a1a3fcb08b6f9f12ee67049b6b8d561ad684";
       public static readonly String CodeGenerationErrors = "";
       public static readonly String GithubRepoName = "azure-rest-api-specs";
       // END: Code Generation Metadata Section

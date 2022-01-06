@@ -415,7 +415,6 @@ else
     Write-Host "Loading skipped. 'psuserpreferences' environment variable was not set to load user preferences." -ForegroundColor DarkYellow
 }
 
-
 export-modulemember -Function Set-TestEnvironment
 export-modulemember -Function Get-BuildScopes
 export-modulemember -Function Start-Build
